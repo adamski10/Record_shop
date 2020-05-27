@@ -11,6 +11,12 @@ artist1 = Artist.new({
 
 artist1.save()
 
+artist2 = Artist.new({
+  "name" => "Johnny Cash"
+})
+
+artist2.save()
+
 album1 = Albums.new({
   "title" => "Definitely maybe",
   "genre" => "rock",

@@ -50,8 +50,8 @@ class Albums
  end
 
 
-  def update()
-    sql = "
+  def update() 
+    sql = "         
     UPDATE albums SET (
       title,
       genre
@@ -62,6 +62,17 @@ class Albums
     WHERE id = $3"
     values = [@title, @genre, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def Albums.find(id)
+    sql = "SELECT *
+    FROM albums
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    album_hash = results.first
+    album = Artist.new(album_hash)
+    return album
   end
 
 end
